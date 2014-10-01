@@ -6,13 +6,13 @@ import (
 )
 
 type Task struct {
-	name    string
-	created time.Time
+	Name    string
+	Created time.Time
 }
 
 func (t Task) String() string {
-	return fmt.Sprintf("%v (created %v)", t.name, t.created)
+	return fmt.Sprintf("%v (Created %v)", t.Name, t.Created)
 }
 func NewTask(name string) *Task {
-	return &Task{name: name, created: time.Now()}
+	return &Task{Name: name, Created: time.Now()}
 }

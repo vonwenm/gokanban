@@ -18,7 +18,7 @@ func TestKanbanColumn(t *testing.T) {
 	if col.taskCount() != 1 {
 		t.Error("Har inte en task")
 	}
-	
+
 	col.removeTask("task 1")
 
 	//defer func() {

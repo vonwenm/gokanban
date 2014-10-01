@@ -5,8 +5,6 @@ import (
 	l "github.com/goffen/kanbanlib"
 )
 
-
-
 func main() {
 	kanban := l.NewKanban()
 	kanban.AddColumn("Col 1", 2)
@@ -14,7 +12,7 @@ func main() {
 	kanban.AddColumn("Col 3", 1)
 
 	kanban.AddTask(2, "Städa inomhus")
-	fmt.Printf("%v\n",kanban)
+	fmt.Printf("%v\n", kanban)
 	//fmt.Print(colAdded.String())
 
 	l.Start(kanban)
