@@ -4,15 +4,15 @@ import (
 	"fmt"
 )
 
-type Kanban struct {
+type KanbanBoard struct {
 	Columns []KanbanColumn
 }
 
-func NewKanban() *Kanban {
-	return &Kanban{Columns: make([]KanbanColumn, 0)}
+func NewKanban() *KanbanBoard {
+	return &KanbanBoard{Columns: make([]KanbanColumn, 0)}
 }
 
-func (k *Kanban) AddColumn(name string, maxWip int) KanbanColumn {
+func (k *KanbanBoard) AddColumn(name string, maxWip int) KanbanColumn {
 	col := NewColumn(name, maxWip)
 	k.Columns = append(k.Columns, *col)
 	fmt.Printf("Appended to Columns. Now %d long\n", len(k.Columns))
@@ -20,18 +20,18 @@ func (k *Kanban) AddColumn(name string, maxWip int) KanbanColumn {
 }
 
 // Adds task to column by index
-func (k *Kanban) AddTask(col int, name string) {
+func (k *KanbanBoard) AddTask(col int, name string) {
 	task := NewTask(name)
 	k.Columns[col].addTask(task)
 }
 
-func (k *Kanban) MoveTask(from int, to int, task *Task) {
+func (k *KanbanBoard) MoveTask(from int, to int, task *Task) {
 	k.Columns[from].removeTask(task.name)
 	k.Columns[to].addTask(task)
 }
 
 // implements Stringer()
-func (k Kanban) String() string {
+func (k KanbanBoard) String() string {
 
 	s := fmt.Sprintf("I got %d Columns\n", len(k.Columns))
 	for i := 0; i < len(k.Columns); i++ {

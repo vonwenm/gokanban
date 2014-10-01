@@ -7,7 +7,7 @@ import (
 	"net/http"
 )
 
-func Start(kanban *Kanban) {
+func Start(kanban *KanbanBoard) {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		b, err := json.Marshal(kanban)
 		if err != nil {

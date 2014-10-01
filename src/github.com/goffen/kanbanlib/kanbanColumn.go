@@ -2,6 +2,8 @@ package kanbanlib
 
 import (
 	"fmt"
+	"encoding/json"
+	"strconv"
 )
 
 type KanbanColumn struct {
@@ -27,7 +29,7 @@ func (c *KanbanColumn) MarshalJSON() ([]byte, error) {
 func (col KanbanColumn) String() string {
 
 	colDesc := fmt.Sprintf("%v (wip: %d, %#v)", col.name, col.maxWip, col.tasks)
-	
+
 	return colDesc
 }
 
