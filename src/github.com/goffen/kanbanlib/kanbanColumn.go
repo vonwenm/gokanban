@@ -5,6 +5,7 @@ import (
 )
 
 type KanbanColumn struct {
+	Id int
 	Name   string
 	MaxWip int
 	Tasks  []Task
@@ -44,7 +45,7 @@ func (col *KanbanColumn) addTask(task *Task) {
 	col.Tasks[len(col.Tasks)-1] = *task
 }
 
-func NewColumn(name string, maxWip int) *KanbanColumn {
-	return &KanbanColumn{Name: name, MaxWip: maxWip, Tasks: make([]Task, 0, maxWip)}
+func NewColumn(name string, maxWip int, id int) *KanbanColumn {
+	return &KanbanColumn{Name: name, MaxWip: maxWip, Tasks: make([]Task, 0, maxWip), Id: id}
 }
 

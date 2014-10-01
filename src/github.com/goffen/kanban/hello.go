@@ -7,10 +7,10 @@ import (
 )
 
 func main() {
-	kanban := l.NewKanban()
-	kanban.AddColumn("Col 1", 2)
-	kanban.AddColumn("Col 2", 2)
-	kanban.AddColumn("Col 3", 1)
+	kanban := l.NewKanban(1)
+	kanban.AddColumn("Col 1", 2, 1)
+	kanban.AddColumn("Col 2", 2, 2)
+	kanban.AddColumn("Col 3", 1, 3)
 
 	kanban.AddTask(2, "Städa inomhus")
 	fmt.Printf("%v\n", kanban)

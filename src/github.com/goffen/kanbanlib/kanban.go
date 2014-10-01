@@ -5,15 +5,30 @@ import (
 )
 
 type KanbanBoard struct {
+	Id int
 	Columns []KanbanColumn
 }
 
-func NewKanban() *KanbanBoard {
-	return &KanbanBoard{Columns: make([]KanbanColumn, 0)}
+func NewKanban(id int) *KanbanBoard {
+	return &KanbanBoard{Columns: make([]KanbanColumn, 0), Id: id }
 }
 
-func (k *KanbanBoard) AddColumn(name string, maxWip int) KanbanColumn {
-	col := NewColumn(name, maxWip)
+func (k *KanbanBoard) GetColumn(id int) *KanbanColumn {
+	for i := 0; i < len(k.Columns); i++ {
+		col := k.Columns[i]
+		if(col.Id == id) {
+			return &col
+		}
+	}
+	return nil
+}
+
+func (k *KanbanBoard) NrColumns() int {
+	return len(k.Columns)
+}
+
+func (k *KanbanBoard) AddColumn(name string, maxWip int, id int) KanbanColumn {
+	col := NewColumn(name, maxWip, id)
 	k.Columns = append(k.Columns, *col)
 	fmt.Printf("Appended to Columns. Now %d long\n", len(k.Columns))
 	return *col
