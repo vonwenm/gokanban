@@ -26,7 +26,7 @@ func (k *KanbanBoard) AddTask(col int, name string) {
 }
 
 func (k *KanbanBoard) MoveTask(from int, to int, task *Task) {
-	k.Columns[from].removeTask(task.name)
+	k.Columns[from].removeTask(task.Name)
 	k.Columns[to].addTask(task)
 }
 

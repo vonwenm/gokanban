@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	l "github.com/goffen/kanbanlib"
+	s "github.com/goffen/restserver"
 )
 
 func main() {
@@ -15,5 +16,5 @@ func main() {
 	fmt.Printf("%v\n", kanban)
 	//fmt.Print(colAdded.String())
 
-	l.Start(kanban)
+	s.Start(kanban)
 }
