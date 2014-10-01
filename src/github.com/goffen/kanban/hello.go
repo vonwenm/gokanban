@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	l "github.com/goffen/kanbanlib"
+	p "github.com/goffen/kanbanpersistence"
 	s "github.com/goffen/restserver"
 )
 
@@ -16,5 +17,6 @@ func main() {
 	fmt.Printf("%v\n", kanban)
 	//fmt.Print(colAdded.String())
 
-	s.Start(kanban)
+	go s.Start(kanban)
+	p.Persist(kanban)
 }
