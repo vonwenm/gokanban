@@ -6,11 +6,11 @@ import (
 )
 
 func TestKanbanColumn(t *testing.T) {
-	col := NewColumn("name", 1)
+	col := NewColumn("name", 1, 1)
 	if col.taskCount() != 0 {
 		t.Error("Har tasks")
 	}
-	if col.name != "name" {
+	if col.Name != "name" {
 		t.Error("Fel namn")
 	}
 	col.addTask(NewTask("task 1"))
