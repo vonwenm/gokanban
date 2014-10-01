@@ -2,6 +2,8 @@ package kanbanlib
 
 import (
 	"fmt"
+	"encoding/json"
+	"strconv"
 )
 
 type KanbanColumn struct {
