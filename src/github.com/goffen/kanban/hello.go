@@ -16,4 +16,6 @@ func main() {
 	kanban.AddTask(2, "Städa inomhus")
 	fmt.Printf("%v\n",kanban)
 	//fmt.Print(colAdded.String())
+
+	l.Start(kanban)
 }

@@ -10,6 +10,20 @@ type KanbanColumn struct {
 	tasks  []Task
 }
 
+func (c *KanbanColumn) MarshalJSON() ([]byte, error) {
+    // Here you do the marshalling of Meta
+    wip := `"wip":` + strconv.Itoa(c.maxWip)
+
+    // Manually calling Marshal for Contents
+    cont, err := json.Marshal(c.tasks)
+    if err != nil {
+        return nil, err
+    }
+
+    // Stitching it all together
+    return []byte(`{` + wip + `,"tasks":` + string(cont) + `}`), nil
+}
+
 func (col KanbanColumn) String() string {
 
 	colDesc := fmt.Sprintf("%v (wip: %d, %#v)", col.name, col.maxWip, col.tasks)
